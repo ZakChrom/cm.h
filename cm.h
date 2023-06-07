@@ -6,32 +6,8 @@
     #define CM_ERROR(err) fprintf(stderr, "[CM ERROR] %s\n", err)
 #endif // CM_NO_ERRORS
 #define CM_NCELLS 11
-#define CM__ARGS Grid *grid,Cell self,unsigned int x, unsigned int y, bool pushed,Cell other
-#define CM__VOID (void)grid;(void)self;(void)x;(void)y;(void)pushed;(void)other;
 #define CM_CELL(type, rot, placeable) (Cell){type%CM_NCELLS, rot&0b11, placeable};
-/* Cell struct
-type : 4 = 
-    0 aka empty |
-    1 aka gen   |
-    2 aka cw    |
-    3 aka mover |
-    4 aka ccw   |
-    5 aka push  |
-    6 aka wall  |
-    7 aka enemy |
-    8 aka trash |
-    9 aka slide
 
-rot : 2 = 
-    0 aka right |
-    1 aka down  |
-    2 aka left  |
-    3 aka up
-
-placeable  : 1 = true | false
-
-total bits is 8 aka 1 byte
-*/
 #ifndef CM_H
 #define CM_H
 
